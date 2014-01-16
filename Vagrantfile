@@ -11,10 +11,10 @@ Vagrant.configure("2") do |config|
   config.vm.box = box
   config.vm.box_url = url
   config.vm.hostname = domain
-  config.vm.network :private_network, ip: "192.168.88.2" # The virtual ip
+  config.vm.network "private_network", ip: "192.168.88.2" # The virtual ip
   config.vm.synced_folder "site/", "/srv/www"
 
-  config.vm.provider :virtualbox do |vb|
+  config.vm.provider "virtualbox" do |vb|
     vb.customize [
       "modifyvm", :id,
       "--memory", ram,
@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.provision :puppet do |puppet|
+  config.vm.provision "puppet" do |puppet|
     puppet.manifests_path = "puppet/manifests"
     puppet.module_path = "puppet/modules"
   end

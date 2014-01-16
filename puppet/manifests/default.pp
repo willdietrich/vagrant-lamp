@@ -24,10 +24,6 @@ Exec {
 # postinstall script, then remove it.
 include base
 
-# Information for setting up the server. Defaults to hostname defined in
-# Vagrantfile.
-$project = "${hostname}"
-
 # Override server to change the server, default is Apache.
 $server = "apache"
 
@@ -38,7 +34,7 @@ $lang = "php"
 $db = "mysql"
 
 class { "${server}" :
-  hostname => "${project}",
+  hostname => "${hostname}",
 }
 
 class { "${lang}" : }
