@@ -2,7 +2,7 @@
 define apache::mod (
   $mod    = $title,
   $action = "a2enmod",
-  $reqs   = "",
+  $reqs = "",
   $notifs = "",
 ) {
 
