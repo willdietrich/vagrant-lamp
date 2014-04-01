@@ -28,4 +28,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.manifests_path = "puppet/manifests"
     puppet.module_path = "puppet/modules"
   end
+  config.vm.provision "shell", inline: "su - vagrant -c \"curl -sSL https://get.rvm.io | bash -s stable --ruby\""
 end
